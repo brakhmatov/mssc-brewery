@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class BeerController {
 	}
 
 	@GetMapping("/{beerId}")
-	public ResponseEntity<BeerDto> getBeer(@PathVariable UUID beerId) {
+	public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId) {
 		return new ResponseEntity<BeerDto>(beerService.getBeerById(beerId), HttpStatus.OK);
 	}
 	
@@ -45,4 +46,10 @@ public class BeerController {
 //		BeerDto saveDto = beerService.saveBeer(beerDto);
 //		return new ResponseEntity<BeerDto>(saveDto, HttpStatus.OK);
 //	}
+	
+	@PutMapping("/{beerId}")
+	public ResponseEntity<HttpStatus> handleUpdate(@PathVariable("beerId") UUID beerId, BeerDto beerDto) {
+		beerService.updateBeer(beerId, beerDto);
+		return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
+	}
 }
