@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import guru.springframework.msscbrewery.services.BeerService;
-import guru.springframework.msscbrewery.web.module.BeerDto;
+import guru.springframework.msscbrewery.web.model.BeerDto;
 
 @RequestMapping("api/v1/beer")
 @RestController

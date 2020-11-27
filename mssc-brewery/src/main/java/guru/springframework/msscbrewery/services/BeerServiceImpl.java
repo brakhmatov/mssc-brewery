@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import guru.springframework.msscbrewery.web.module.BeerDto;
+import guru.springframework.msscbrewery.web.model.BeerDto;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

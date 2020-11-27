@@ -1,4 +1,4 @@
-package guru.springframework.msscbrewery.web.module;
+package guru.springframework.msscbrewery.web.model;
 
 import java.util.UUID;
 
