@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import guru.springframework.msscbrewery.mapper.BeerMapper;
 import guru.springframework.msscbrewery.services.BeerService;
+import guru.springframework.msscbrewery.web.model.Beer;
 import guru.springframework.msscbrewery.web.model.BeerDto;
 
 @RequestMapping("/api/v1/beer")
@@ -28,7 +30,8 @@ public class BeerController {
 	@Autowired
 	private BeerService beerService;
 	
-	
+	@Autowired
+	private BeerMapper mapper;
 	
 //	public BeerController(BeerService beerService) {
 //		this.beerService = beerService;
@@ -36,6 +39,10 @@ public class BeerController {
 
 	@GetMapping("/{beerId}")
 	public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId) {
+
+		Beer beer = mapper.toBeer(BeerDto.builder().id(UUID.randomUUID()).build());
+		System.out.println(beer);
+
 		return new ResponseEntity<BeerDto>(beerService.getBeerById(beerId), HttpStatus.OK);
 	}
 	

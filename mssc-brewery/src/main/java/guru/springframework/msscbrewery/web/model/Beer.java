@@ -1,37 +1,24 @@
 package guru.springframework.msscbrewery.web.model;
 
-import java.time.OffsetDateTime;
+import java.sql.Timestamp;
 import java.util.UUID;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Positive;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BeerDto {
+public class Beer {
 
-	@Null
 	private UUID id;
-
-	@NotBlank
 	private String beerName;
-
-	@NotBlank
 	private String beerStyle;
-
-	@Positive
 	private Long upc;
 
-	private OffsetDateTime createdDate;
-	private OffsetDateTime updatedDate;
+	private Timestamp createdDate;
+	private Timestamp updatedDate;
 }
